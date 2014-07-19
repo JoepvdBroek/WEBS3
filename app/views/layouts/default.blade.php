@@ -8,7 +8,7 @@
 <header>
 <?php
 
-function display_menu($parent, $level) { 
+/*function display_menu($parent, $level) { 
      $categories = Category::all();
         echo "<ul class='menu'>"; 
         //while ($row = mysqli_fetch_assoc($result)) { 
@@ -25,7 +25,7 @@ function display_menu($parent, $level) {
     }
 
 display_menu(0,1);
-
+*/
 ?>
 </header>
 <body>

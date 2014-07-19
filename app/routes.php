@@ -18,5 +18,18 @@ Route::get('/', function()
 
 Route::get('products', array('as'=>'products', 'uses'=>'ProductController@getIndex'));
 
-Route::get('product/{number}', array('as'=>'product', 'uses'=>'ProductController@getProduct'));
+Route::get('product/{product}', array('as'=>'product', 'uses'=>'ProductController@getProduct'));
 
+Route::get('products/create', array('as'=>'createProduct', 'uses'=>'ProductController@createProduct'));
+
+Route::post('product/new', function()
+{
+	$product = Input::all();
+
+		DB::insert('Insert into products (name, price, shortDescription, description, category_id, imageName) values (?,?,?,?,?,?)',
+			array($input['name'], $input['price'], $input['shortDescription'], $input['description'], $input['category_id'], $input['image']));
+
+		return View::make('product.index')
+			->with('title', 'All Products')
+			->with('products', Product::all());
+});
