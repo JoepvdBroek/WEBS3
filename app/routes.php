@@ -16,20 +16,19 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
+
+//product Routes
 Route::get('products', array('as'=>'products', 'uses'=>'ProductController@getIndex'));
 
 Route::get('product/{product}', array('as'=>'product', 'uses'=>'ProductController@getProduct'));
 
 Route::get('products/create', array('as'=>'createProduct', 'uses'=>'ProductController@createProduct'));
 
-Route::post('product/new', function()
-{
-	$product = Input::all();
+Route::post('products/create', array('as'=>'newProduct', 'uses'=>'ProductController@newProduct'));
 
-		DB::insert('Insert into products (name, price, shortDescription, description, category_id, imageName) values (?,?,?,?,?,?)',
-			array($input['name'], $input['price'], $input['shortDescription'], $input['description'], $input['category_id'], $input['image']));
+//category Routes
+Route::get('category/{id}', array('as'=>'category', 'uses'=>'CategoryController@getIndex'));
 
-		return View::make('product.index')
-			->with('title', 'All Products')
-			->with('products', Product::all());
-});
+Route::get('categories/create', array('as'=>'createCategory', 'uses'=>'CategoryController@createCategory'));
+
+Route::post('categories/create', array('as'=>'newCategory', 'uses'=>'CategoryController@newCategory'));

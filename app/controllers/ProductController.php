@@ -29,7 +29,7 @@ class ProductController extends BaseController {
 		$product = Input::all();
 
 		DB::insert('Insert into products (name, price, shortDescription, description, category_id, imageName) values (?,?,?,?,?,?)',
-			array($input['name'], $input['price'], $input['shortDescription'], $input['description'], $input['category_id'], $input['image']));
+			array($product['name'], $product['price'], $product['shortDescription'], $product['description'], $product['category'], $product['image']));
 
 		return View::make('product.index')
 			->with('title', 'All Products')

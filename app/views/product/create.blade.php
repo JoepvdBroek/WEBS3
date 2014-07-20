@@ -18,7 +18,7 @@
 {{ Form::text('description') }} </br>
 
 {{ Form::label('category', 'Categorie') }} </br>
-{{ Form::select('category', array('5'=>'mondverzorging', '6'=>'thriller', '7'=>'poppen')) }} </br>
+{{ Form::select('category', array('4'=>'mondverzorging', '5'=>'thriller', '6'=>'poppen')) }} </br>
 
 {{ Form::label('image', 'Afbeelding') }} </br>
 {{ Form::text('image')}}

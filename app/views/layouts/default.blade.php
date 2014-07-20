@@ -26,6 +26,16 @@
 
 display_menu(0,1);
 */
+
+$categories = Category::where('parent', '<>', '0')->get();
+
+echo HTML::link('products', 'Home');
+
+foreach ($categories as $category) {
+    echo " | ";
+    echo HTML::linkRoute('category', $category->name, array($category->id)); 
+}
+
 ?>
 </header>
 <body>
