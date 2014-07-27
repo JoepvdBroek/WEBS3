@@ -20,7 +20,7 @@ class CategoryController extends BaseController {
 
 		return View::make('category.create')
 			->with('title', 'Category Create Page')
-			->with('categories', $array);		
+			->with('categories', $array);	//categorien zonder ouder	
 	} 
 
 	public function newCategory()

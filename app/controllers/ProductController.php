@@ -29,9 +29,7 @@ class ProductController extends BaseController {
 
 		return View::make('product.create')
 			->with('title', 'Product Create Page')
-			->with('categories', $array);	
-
-
+			->with('categories', $array);	//categorien met ouder
 	}
 
 	public function newProduct()

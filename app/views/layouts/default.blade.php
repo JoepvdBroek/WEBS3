@@ -29,7 +29,7 @@ display_menu(0,1);
 
 $categories = Category::where('parent', '<>', '0')->get();
 
-echo HTML::link('products', 'Home');
+echo HTML::link('/', 'Home');
 
 foreach ($categories as $category) {
     echo " | ";

@@ -11,24 +11,24 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
-
+/*Route::get('/', function()
+|{
+|	return View::make('hello');
+|});
+*/
 
 //product Routes
-Route::get('products', array('as'=>'products', 'uses'=>'ProductController@getIndex'));
+Route::get('/', array('as'=>'products', 'uses'=>'ProductController@getIndex'));
 
-Route::get('product/{product}', array('as'=>'product', 'uses'=>'ProductController@getProduct'));
+Route::get('product/create', array('as'=>'createProduct', 'uses'=>'ProductController@createProduct'));
 
-Route::get('products/create', array('as'=>'createProduct', 'uses'=>'ProductController@createProduct'));
+Route::post('product/create', array('as'=>'newProduct', 'uses'=>'ProductController@newProduct'));
 
-Route::post('products/create', array('as'=>'newProduct', 'uses'=>'ProductController@newProduct'));
+Route::get('product/{id}', array('as'=>'product', 'uses'=>'ProductController@getProduct'));
 
 //category Routes
-Route::get('category/{id}', array('as'=>'category', 'uses'=>'CategoryController@getIndex'));
-
 Route::get('categories/create', array('as'=>'createCategory', 'uses'=>'CategoryController@createCategory'));
 
 Route::post('categories/create', array('as'=>'newCategory', 'uses'=>'CategoryController@newCategory'));
+
+Route::get('category/{id}', array('as'=>'category', 'uses'=>'CategoryController@getIndex'));
