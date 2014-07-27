@@ -5,7 +5,7 @@
 <h1>Categorie Pagina</h1>
 
 @foreach ($products as $product) 
-	<h2>{{ $product->name }}</h1>
+	<h2>{{ HTML::linkRoute('product', $product->name, array($product->id)) }}</h2>
 	<h3>{{ $product->price }}</h2>
 
 	<p>{{ $product->shortDescription }}<p></br></br>

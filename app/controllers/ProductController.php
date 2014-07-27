@@ -20,8 +20,18 @@ class ProductController extends BaseController {
 
 	public function createProduct()
 	{
+
+		$array = array();
+		foreach(Category::where('parent', '<>', '0')->get() as $category)
+		{
+			$array[$category->id] = $category->name;
+		}
+
 		return View::make('product.create')
-			->with('title', 'Product Create Page');		
+			->with('title', 'Product Create Page')
+			->with('categories', $array);	
+
+
 	}
 
 	public function newProduct()
