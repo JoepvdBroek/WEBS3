@@ -18,22 +18,38 @@
 */
 
 //product Routes
+Route::model('product', 'Product');
+
 Route::get('/', array('as'=>'products', 'uses'=>'ProductController@getIndex'));
 
-Route::get('product/create', array('as'=>'createProduct', 'uses'=>'ProductController@createProduct'));
-
-Route::post('product/create', array('as'=>'newProduct', 'uses'=>'ProductController@newProduct'));
-
-Route::get('product/{id}', array('as'=>'product', 'uses'=>'ProductController@getProduct'));
+Route::get('product/{product}', array('as'=>'product', 'uses'=>'ProductController@getProduct'));
 
 //category Routes
-Route::get('categories/create', array('as'=>'createCategory', 'uses'=>'CategoryController@createCategory'));
+Route::model('category', 'Category');
 
-Route::post('categories/create', array('as'=>'newCategory', 'uses'=>'CategoryController@newCategory'));
-
-Route::get('category/{id}', array('as'=>'category', 'uses'=>'CategoryController@getIndex'));
+Route::get('category/{category}', array('as'=>'category', 'uses'=>'CategoryController@getIndex'));
 
 //user Routes
 Route::get('login', array('as'=>'login', 'uses'=>'HomeController@getLogin'));
 
+Route::post('login', array('uses'=>'HomeController@postLogin'));
+
 Route::get('register', array('as'=>'register', 'uses'=>'HomeController@getRegister'));
+
+Route::post('register', array('uses'=>'HomeController@postRegister'));
+
+Route::get('logout', array('as'=>'logout', 'uses'=>'HomeController@logout'));
+
+//Admin Routes
+Route::group(array('before'=>'admin'), function()
+{
+	Route::get('admin', 'AdminController@getIndex');
+
+	Route::get('categories/create', array('as'=>'createCategory', 'uses'=>'AdminController@createCategory'));
+
+	Route::post('categories/create', array('as'=>'newCategory', 'uses'=>'AdminController@newCategory'));
+
+	Route::get('product/create', array('as'=>'createProduct', 'uses'=>'AdminController@createProduct'));
+
+	Route::post('product/create', array('as'=>'newProduct', 'uses'=>'AdminController@newProduct'));
+});
