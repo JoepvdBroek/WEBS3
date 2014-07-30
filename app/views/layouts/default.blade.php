@@ -3,9 +3,14 @@
 <head>
 	<meta charset="UTF-8">
 	<title>{{ $title }}</title>
+    {{ HTML::script('http://code.jquery.com/jquery.js') }}
+    {{ HTML::script('js/bootstrap.js') }}
+    {{ HTML::style('css/bootstrap.css') }}
+
 </head>
 
 <header>
+
 <?php
 
 /*function display_menu($parent, $level) { 
@@ -28,17 +33,37 @@ display_menu(0,1);
 */
 
 $categories = Category::where('parent', '<>', '0')->get();
-
-echo HTML::link('/', 'Home');
-
-foreach ($categories as $category) {
-    echo " | ";
-    echo HTML::linkRoute('category', $category->name, array($category->id)); 
-}
-
 ?>
+
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        {{ HTML::link('/', 'Home', array('class'=>'navbar-brand')) }}<br>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            @foreach($categories as $category)
+                <li>{{ HTML::linkRoute('category', $category->name, array($category->id)) }}</li>
+            @endforeach
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+            @if(Auth::user())
+                <li>{{ ucwords(Auth::user()->username) }}</li>
+                <li>{{ HTML::link('logout', 'Logout') }}</li>
+            @else
+                <li>{{ HTML::link('login', 'Login') }}</li>
+            @endif
+        </ul>      
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
 </header>
-<body>
+<body class="container">
 	@yield('content')
 </body>
 </html>

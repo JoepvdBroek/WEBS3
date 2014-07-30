@@ -32,3 +32,8 @@ Route::get('categories/create', array('as'=>'createCategory', 'uses'=>'CategoryC
 Route::post('categories/create', array('as'=>'newCategory', 'uses'=>'CategoryController@newCategory'));
 
 Route::get('category/{id}', array('as'=>'category', 'uses'=>'CategoryController@getIndex'));
+
+//user Routes
+Route::get('login', array('as'=>'login', 'uses'=>'HomeController@getLogin'));
+
+Route::get('register', array('as'=>'register', 'uses'=>'HomeController@getRegister'));
