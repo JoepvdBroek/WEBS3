@@ -52,7 +52,7 @@ $categories = Category::where('parent', '<>', '0')->get();
 
         <ul class="nav navbar-nav navbar-right">
             @if(Auth::user())
-                <li>{{ ucwords(Auth::user()->username) }}</li>
+                <li>{{ HTML::link('admin', ucwords(Auth::user()->username)) }}</li>
                 <li>{{ HTML::link('logout', 'Logout') }}</li>
             @else
                 <li>{{ HTML::link('login', 'Login') }}</li>
