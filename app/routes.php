@@ -17,6 +17,11 @@
 |});
 */
 
+Route::get('todo', function()
+{
+	return View::make('home.todo');
+});
+
 //Admin Routes
 Route::group(array('before'=>'admin'), function()
 {
