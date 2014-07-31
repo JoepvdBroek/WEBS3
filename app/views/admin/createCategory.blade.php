@@ -17,7 +17,7 @@
 		<!--{{ Form::file('image') }} </br></br>-->
 
 		{{ Form::submit('Aanmaken', array('class'=>'btn btn-success')) }}
-		{{ HTML::link('/', 'Annuleer', array('class'=>'btn btn-danger'))  }}
+		{{ HTML::link('admin', 'Annuleer', array('class'=>'btn btn-danger'))  }}
 
 		{{ Form::close() }}
 	</div>

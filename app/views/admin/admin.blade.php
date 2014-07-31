@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="span12 well">
-	<h3>welcome {{ Auth::user()->username }} </h3>
+	<h3>welcome {{ ucwords(Auth::user()->username) }} </h3>
 
 	</br > 
 	{{ HTML::linkRoute('createProduct', 'Niewe Product Aanmaken') }}</br>

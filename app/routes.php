@@ -17,6 +17,20 @@
 |});
 */
 
+//Admin Routes
+Route::group(array('before'=>'admin'), function()
+{
+	Route::get('admin', 'AdminController@getIndex');
+
+	Route::get('category/create', array('as'=>'createCategory', 'uses'=>'AdminController@createCategory'));
+
+	Route::post('category/create', array('as'=>'newCategory', 'uses'=>'AdminController@newCategory'));
+
+	Route::get('product/create', array('as'=>'createProduct', 'uses'=>'AdminController@createProduct'));
+
+	Route::post('product/create', array('as'=>'newProduct', 'uses'=>'AdminController@newProduct'));
+});
+
 //product Routes
 Route::model('product', 'Product');
 
@@ -40,16 +54,3 @@ Route::post('register', array('uses'=>'HomeController@postRegister'));
 
 Route::get('logout', array('as'=>'logout', 'uses'=>'HomeController@logout'));
 
-//Admin Routes
-Route::group(array('before'=>'admin'), function()
-{
-	Route::get('admin', 'AdminController@getIndex');
-
-	Route::get('categories/create', array('as'=>'createCategory', 'uses'=>'AdminController@createCategory'));
-
-	Route::post('categories/create', array('as'=>'newCategory', 'uses'=>'AdminController@newCategory'));
-
-	Route::get('product/create', array('as'=>'createProduct', 'uses'=>'AdminController@createProduct'));
-
-	Route::post('product/create', array('as'=>'newProduct', 'uses'=>'AdminController@newProduct'));
-});

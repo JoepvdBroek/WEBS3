@@ -5,13 +5,21 @@
 	<div class="well">
 		<legend>Nieuw product aanmaken</legend>
 
+		<?php
+		Form::macro('number', function()
+		{
+		    return '<input type="number" min="0.01" step="0.01" placeholder="0.00" class="form-control">';
+		});
+		?>
+
 		{{ Form::open(array('route'=>'newProduct', 'role'=>'form')) }}
 
 		{{ Form::label('name', 'Productnaam') }} </br>
-		{{ Form::text('name', '', array('placeholder'=>'Naam', 'class'=>'form-control')) }} </br>
+		{{ Form::text('name', 'Naam', array('placeholder'=>'Naam', 'class'=>'form-control')) }} </br>
 
 		{{ Form::label('price', 'Prijs') }} </br>
-		{{ Form::text('price', '0.00', array('placeholder'=>'Prijs', 'class'=>'form-control')) }} </br>
+		{{ Form::number('price')  }} </br>
+
 		{{ Form::label('shortDescription', 'Korte omschrijving') }} </br>
 		{{ Form::text('shortDescription', '', array('class'=>'form-control')) }} </br>
 
@@ -25,7 +33,7 @@
 		{{ Form::file('image') }} </br>
 
 		{{ Form::submit('Aanmaken', array('class'=>'btn btn-success')) }}
-		{{ HTML::link('/', 'Annuleer', array('class'=>'btn btn-danger'))  }}
+		{{ HTML::link('admin', 'Annuleer', array('class'=>'btn btn-danger'))  }}
 
 		{{ Form::close() }}
 	</div>
