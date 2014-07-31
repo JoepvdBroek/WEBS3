@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1>Categorie Pagina</h1>
+<h1>{{ ucwords($title) }}</h1>
 
 @foreach ($products as $product) 
 	<h2>{{ HTML::linkRoute('product', $product->name, array($product->id)) }}</h2>

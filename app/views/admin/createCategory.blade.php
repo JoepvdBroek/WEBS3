@@ -8,7 +8,7 @@
 		{{ Form::open(array('route'=>'newCategory', 'role'=>'form')) }}
 
 		{{ Form::label('name', 'Categorienaam') }} </br>
-		{{ Form::text('name', 'Naam', array('class'=>'form-control')) }} </br>
+		{{ Form::text('name', '', array('class'=>'form-control')) }} </br>
 
 		{{ Form::label('parent', 'Ouder') }} </br>
 		{{ Form::select('parent', $categories, null, array('class'=>'form-control')) }} </br>

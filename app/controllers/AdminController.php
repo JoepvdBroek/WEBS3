@@ -26,14 +26,15 @@ class AdminController extends BaseController{
 
 	public function newCategory()
 	{
-		$category = Input::all();
+		$input = Input::all();
 
-		DB::insert('Insert into categories (name, parent) values (?,?)',
-			array($category['name'], $category['parent']));
+		$category = new Category;
+		$category->name = $input['name'];
+		$category->parent = $input['parent'];
 
-		return View::make('product.index')
-			->with('title', 'All Products')
-			->with('products', Product::all());
+		$category->save();
+
+		return Redirect::route('/');
 	}
 
 	public function createProduct()
@@ -52,13 +53,18 @@ class AdminController extends BaseController{
 
 	public function newProduct()
 	{
-		$product = Input::all();
+		$input = Input::all();
 
-		DB::insert('Insert into products (name, price, shortDescription, description, category_id, imageName) values (?,?,?,?,?,?)',
-			array($product['name'], $product['price'], $product['shortDescription'], $product['description'], $product['category'], $product['image']));
+		$product = new Product;
+		$product->name = $input['name'];
+		$product->price = $input['price'];
+		$product->shortDescription = $input['shortDescription'];
+		$product->description = $input['description'];
+		$product->category_id = $input['category'];
+		$product->imageName = $input['image'];
 
-		return View::make('product.index')
-			->with('title', 'All Products')
-			->with('products', Product::all());
+		$product->save();
+
+		return Redirect::to('/');
 	}
 }

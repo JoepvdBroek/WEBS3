@@ -8,14 +8,14 @@
 		<?php
 		Form::macro('number', function()
 		{
-		    return '<input type="number" min="0.01" step="0.01" placeholder="0.00" class="form-control">';
+		    return '<input name="price" type="number" min="0.01" step="0.01" placeholder="0.00" class="form-control">';
 		});
 		?>
 
 		{{ Form::open(array('route'=>'newProduct', 'role'=>'form')) }}
 
 		{{ Form::label('name', 'Productnaam') }} </br>
-		{{ Form::text('name', 'Naam', array('placeholder'=>'Naam', 'class'=>'form-control')) }} </br>
+		{{ Form::text('name', '', array('placeholder'=>'Naam', 'class'=>'form-control')) }} </br>
 
 		{{ Form::label('price', 'Prijs') }} </br>
 		{{ Form::number('price')  }} </br>

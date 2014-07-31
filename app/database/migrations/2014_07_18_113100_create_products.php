@@ -20,6 +20,9 @@ class CreateProducts extends Migration {
 			$table->text('shortDescription');
 			$table->string('imageName');
 			$table->integer('category_id');
+			$table->dateTime('updated_at');
+			$table->dateTime('created_at');
+			$table->rememberToken();
 			//$table->foreign('category_id')->references('id')->on('categories');
 		});
 

@@ -14,32 +14,44 @@ class AddCategories extends Migration {
 	{
 		DB::table('categories')->insert(array(
 			'name'=>'Verzorging',
-			'parent'=>'0'
+			'parent'=>'0',
+			'created_at'=>date('Y-m-d H:m:s'),
+			'updated_at'=>date('Y-m-d H:m:s')
 		));
 
 		DB::table('categories')->insert(array(
 			'name'=>'Boeken',
-			'parent'=>'0'
+			'parent'=>'0',
+			'created_at'=>date('Y-m-d H:m:s'),
+			'updated_at'=>date('Y-m-d H:m:s')
 		));
 
 		DB::table('categories')->insert(array(
 			'name'=>'Speelgoed',
-			'parent'=>'0'
+			'parent'=>'0',
+			'created_at'=>date('Y-m-d H:m:s'),
+			'updated_at'=>date('Y-m-d H:m:s')
 		));
 
 		DB::table('categories')->insert(array(
 			'name'=>'Mondsverzorging',
-			'parent'=>'1'
+			'parent'=>'1',
+			'created_at'=>date('Y-m-d H:m:s'),
+			'updated_at'=>date('Y-m-d H:m:s')
 		));
 
 		DB::table('categories')->insert(array(
 			'name'=>'Thriller',
-			'parent'=>'2'
+			'parent'=>'2',
+			'created_at'=>date('Y-m-d H:m:s'),
+			'updated_at'=>date('Y-m-d H:m:s')
 		));
 
 		DB::table('categories')->insert(array(
 			'name'=>'Poppen',
-			'parent'=>'3'
+			'parent'=>'3',
+			'created_at'=>date('Y-m-d H:m:s'),
+			'updated_at'=>date('Y-m-d H:m:s')
 		));
 	}
 

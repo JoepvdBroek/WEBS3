@@ -11,29 +11,7 @@
 
 <header>
 
-<?php
-
-/*function display_menu($parent, $level) { 
-     $categories = Category::all();
-        echo "<ul class='menu'>"; 
-        //while ($row = mysqli_fetch_assoc($result)) { 
-        foreach ( $categories as $category) {
-            if ($row['Count'] > 0) { 
-                echo $category->name;
-                $this->display_menu($row['CategoryId'], $level + 1); 
-                echo "</li>"; 
-            } elseif ($row['Count']==0) { 
-                echo $category->name; 
-            } else; 
-        } 
-        echo "</ul>"; 
-    }
-
-display_menu(0,1);
-*/
-
-$categories = Category::where('parent', '=', '0')->get();
-?>
+<?php $categories = Category::where('parent', '=', '0')->get(); ?>
 
 <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
@@ -49,10 +27,10 @@ $categories = Category::where('parent', '=', '0')->get();
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ $category->name }}<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                <?php $subcategories = Category::where('parent', '=', $category->id)->get(); ?>
-                    @foreach($subcategories as $sub)
-                        <li>{{ HTML::linkRoute('category', $sub->name, $sub->id) }}</li>
-                    @endforeach
+                    <?php $subcategories = Category::where('parent', '=', $category->id)->get(); ?>
+                        @foreach($subcategories as $sub)
+                            <li>{{ HTML::linkRoute('category', $sub->name, $sub->id) }}</li>
+                        @endforeach
                     </ul>
             @endforeach
         </ul>

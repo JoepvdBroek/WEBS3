@@ -18,7 +18,9 @@ class AddProducts extends Migration {
 			'shortDescription'=>'Van het merk Oral',
 			'description'=>'Een elektische tandenborstel om glanzende tanden te krijgen.',
 			'imageName'=>'oral-b.png',
-			'category_id'=>'4'
+			'category_id'=>'4',
+			'created_at'=>date('Y-m-d H:m:s'),
+			'updated_at'=>date('Y-m-d H:m:s')
 		));
 
 		DB::table('products')->insert(array(
@@ -27,7 +29,9 @@ class AddProducts extends Migration {
 			'shortDescription'=>'Een speelpop',
 			'description'=>'Barbie is de gewilde meisjes speelpop.',
 			'imageName'=>'barbie.png',
-			'category_id'=>'6'
+			'category_id'=>'6',
+			'created_at'=>date('Y-m-d H:m:s'),
+			'updated_at'=>date('Y-m-d H:m:s')
 		));
 
 		DB::table('products')->insert(array(
@@ -36,7 +40,9 @@ class AddProducts extends Migration {
 			'shortDescription'=>'Een goede thriller',
 			'description'=>'Een spannend verhaal over potter tegen voldemort.',
 			'imageName'=>'harry.png',
-			'category_id'=>'5'
+			'category_id'=>'5',
+			'created_at'=>date('Y-m-d H:m:s'),
+			'updated_at'=>date('Y-m-d H:m:s')
 		));
 	}
 

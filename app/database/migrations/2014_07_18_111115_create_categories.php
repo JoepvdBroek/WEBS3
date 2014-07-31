@@ -16,6 +16,9 @@ class CreateCategories extends Migration {
 			$table->increments('id');
 			$table->string('name');
 			$table->integer('parent');
+			$table->dateTime('updated_at');
+			$table->dateTime('created_at');
+			$table->rememberToken();
 		});
 	}
 
