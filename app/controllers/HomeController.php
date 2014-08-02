@@ -2,6 +2,13 @@
 
 class HomeController extends BaseController {
 
+	public function error($message)
+	{
+		return View::make('home.error')
+			->with('title', 'Error Page')
+			->with('message', $message);
+	}
+
 	public function getLogin()
 	{
 		return View::make('home.login')
@@ -51,7 +58,7 @@ class HomeController extends BaseController {
 	{
 		$input = Input::all();
 
-		$rules = array('username'=>'required|unique:users', 'password'=>'required');
+		$rules = array('username'=>'required|unique:users|min:6', 'password'=>'required|min:6');
 
 		$val = Validator::make($input, $rules);
 

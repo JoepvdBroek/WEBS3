@@ -28,13 +28,24 @@ class AdminController extends BaseController{
 	{
 		$input = Input::all();
 
-		$category = new Category;
-		$category->name = $input['name'];
-		$category->parent = $input['parent'];
+		$rules = array('name'=>'required', 'parent'=>'required');
 
-		$category->save();
+		$val = Validator::make($input, $rules);
 
-		return Redirect::route('/');
+		if($val->fails())
+		{
+			return Redirect::to('category/create')->withInput()->withErrors($val);
+		}
+		else
+		{
+			$category = new Category;
+			$category->name = $input['name'];
+			$category->parent = $input['parent'];
+
+			$category->save();
+
+			return Redirect::route('/');
+		}
 	}
 
 	public function createProduct()
@@ -55,16 +66,56 @@ class AdminController extends BaseController{
 	{
 		$input = Input::all();
 
-		$product = new Product;
-		$product->name = $input['name'];
-		$product->price = $input['price'];
-		$product->shortDescription = $input['shortDescription'];
-		$product->description = $input['description'];
-		$product->category_id = $input['category'];
-		$product->imageName = $input['image'];
+		$path = public_path();
+		$path = $path + "\images";
 
-		$product->save();
+		$rules = array('name'=>'required', 'price'=>'required|numeric', 'shortDescription'=>'required', 'description'=>'required', 'category'=>'required', 'image'=>'required|image');
 
-		return Redirect::to('/');
+		$val = Validator::make($input, $rules);
+
+		if($val->fails())
+		{
+			return Redirect::to('product/create')->withInput()->withErrors($val);
+		}
+		else
+		{
+
+			$product = new Product;
+			$product->name = $input['name'];
+			$product->price = $input['price'];
+			$product->shortDescription = $input['shortDescription'];
+			$product->description = $input['description'];
+			$product->category_id = $input['category'];
+			$product->imageName = $input['image'];
+
+			if(Input::hasFile('image'))
+			{
+				if(Input::file('image')->isValid())
+				{
+					try 
+					{
+	    				Input::file('photo')->upload('picture', $path, Input::file('photo')->getClientOriginalName());
+					} 
+					catch(Exception $e) 
+					{
+						Redirect::route('error', array($e->getMessage()));
+						// Handle your error here.
+						// You might want to log $e->getMessage() as that will tell you why the file failed to move.
+					}				
+				}
+				else
+				{
+					Redirect::route('error', array('File is not valid'));
+				}
+			}
+			else
+			{
+				Redirect::route('error', array('No file selected'));
+			}
+
+			$product->save();
+
+			return Redirect::to('/');
+		}
 	}
 }

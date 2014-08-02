@@ -7,6 +7,13 @@
 
 		{{ Form::open(array('route'=>'newCategory', 'role'=>'form')) }}
 
+		@if($errors->any())
+		<div class="alert alert-error">
+			<a href="#" class="close" data-dismiss="alert">&times;</a>
+			{{ implode('', $errors->all('<li class="error">:message</li>')) }}
+		</div>
+		@endif
+		
 		{{ Form::label('name', 'Categorienaam') }} </br>
 		{{ Form::text('name', '', array('class'=>'form-control')) }} </br>
 

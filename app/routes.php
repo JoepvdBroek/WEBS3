@@ -19,11 +19,14 @@
 
 Route::get('todo', function()
 {
-	return View::make('home.todo');
+	return View::make('home.todo')
+		->with('title', 'TODO');
 });
 
+Route::get('error', array('as'=>'error', 'uses'=>'HomeController@error'));
+
 //Admin Routes
-Route::group(array('before'=>'admin'), function()
+Route::group(array('before'=>'auth'), function()
 {
 	Route::get('admin', 'AdminController@getIndex');
 

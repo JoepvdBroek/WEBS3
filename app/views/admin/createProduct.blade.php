@@ -14,6 +14,13 @@
 
 		{{ Form::open(array('route'=>'newProduct', 'role'=>'form')) }}
 
+		@if($errors->any())
+		<div class="alert alert-error">
+			<a href="#" class="close" data-dismiss="alert">&times;</a>
+			{{ implode('', $errors->all('<li class="error">:message</li>')) }}
+		</div>
+		@endif
+
 		{{ Form::label('name', 'Productnaam') }} </br>
 		{{ Form::text('name', '', array('placeholder'=>'Naam', 'class'=>'form-control')) }} </br>
 
