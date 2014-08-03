@@ -44,7 +44,7 @@ class AdminController extends BaseController{
 
 			$category->save();
 
-			return Redirect::route('/');
+			return Redirect::to('/');
 		}
 	}
 
@@ -67,9 +67,9 @@ class AdminController extends BaseController{
 		$input = Input::all();
 
 		$path = public_path();
-		$path = $path + "\images";
+		$path = $path . "\images";
 
-		$rules = array('name'=>'required', 'price'=>'required|numeric', 'shortDescription'=>'required', 'description'=>'required', 'category'=>'required', 'image'=>'required|image');
+		$rules = array('name'=>'required', 'price'=>'required|numeric', 'shortDescription'=>'required', 'description'=>'required', 'category'=>'required', 'image'=>'required');
 
 		$val = Validator::make($input, $rules);
 
@@ -94,26 +94,26 @@ class AdminController extends BaseController{
 				{
 					try 
 					{
-	    				Input::file('photo')->upload('picture', $path, Input::file('photo')->getClientOriginalName());
+						$image = Input::file('image');
+	    				$image->move($path, Input::file('image')->getClientOriginalName());
+	    				$product->save();
 					} 
 					catch(Exception $e) 
 					{
-						Redirect::route('error', array($e->getMessage()));
+						return Redirect::route('error', array($e->getMessage()));
 						// Handle your error here.
 						// You might want to log $e->getMessage() as that will tell you why the file failed to move.
 					}				
 				}
 				else
 				{
-					Redirect::route('error', array('File is not valid'));
+					return Redirect::route('error', array('File is not valid'));
 				}
 			}
 			else
 			{
-				Redirect::route('error', array('No file selected'));
+				return Redirect::route('error', array('No file selected'));
 			}
-
-			$product->save();
 
 			return Redirect::to('/');
 		}

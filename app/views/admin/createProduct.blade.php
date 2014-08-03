@@ -12,7 +12,7 @@
 		});
 		?>
 
-		{{ Form::open(array('route'=>'newProduct', 'role'=>'form')) }}
+		{{ Form::open(array('route'=>'newProduct', 'role'=>'form', 'files'=> true)) }}
 
 		@if($errors->any())
 		<div class="alert alert-error">

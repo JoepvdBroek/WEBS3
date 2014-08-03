@@ -9,7 +9,5 @@
 		{{ HTML::linkRoute('product', $product->name, array($product->id)) }}</br >
 	
 	@endforeach
-
-	{{ public_path() }}
 	
 @stop
