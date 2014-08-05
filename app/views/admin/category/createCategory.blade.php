@@ -5,7 +5,7 @@
 	<div class="well">
 		<legend>Niewe Categorie aanmaken</legend>
 
-		{{ Form::open(array('route'=>'newCategory', 'role'=>'form')) }}
+		{{ Form::open(array('route'=>'category.store', 'role'=>'form')) }}
 
 		@if($errors->any())
 		<div class="alert alert-error">

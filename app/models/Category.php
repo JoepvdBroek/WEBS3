@@ -4,7 +4,7 @@ class Category extends Eloquent {
 
 	protected $table = 'categories';
 
-	protected $rules = array('name'=>'required', 'parent'=>'required');
+	public static $rules = array('name'=>'required', 'parent'=>'required');
 
 	public function products()
 	{

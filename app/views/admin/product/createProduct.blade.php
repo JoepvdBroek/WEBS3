@@ -5,7 +5,7 @@
 	<div class="well">
 		<legend>Nieuw product aanmaken</legend>
 
-		{{ Form::open(array('route'=>'newProduct', 'role'=>'form', 'files'=> true)) }}
+		{{ Form::open(array('route'=>'product.store', 'role'=>'form', 'files'=> true)) }}
 
 		@if($errors->any())
 		<div class="alert alert-error">

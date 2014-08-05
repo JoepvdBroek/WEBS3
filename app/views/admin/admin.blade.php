@@ -6,25 +6,79 @@
 	<h3>welcome {{ ucwords(Auth::user()->username) }} </h3>
 
 	</br > 
-	{{ HTML::linkRoute('createProduct', 'Niewe Product Aanmaken') }}</br>
-	{{ HTML::link('category/create', 'Niewe Categorie Aanmaken') }}</br>
+	{{ HTML::linkRoute('product.create', 'Niewe Product Aanmaken') }}</br>
+	{{ HTML::linkRoute('category.create', 'Niewe Categorie Aanmaken') }}</br>
 <hr>
 	<span class="caret"></span> <span id='toggle1' style="cursor: pointer;">Een Product Wijzigen</span>
 	<div id="hide1">
-		@foreach ($products as $product) 
-			
-			{{ HTML::linkRoute('editProduct', $product->name, array($product->id)) }}</br >
-		
-		@endforeach
+	<table class="table table-striped table-bordered">
+	<thead>
+		<tr>
+			<td>ID</td>
+			<td>Naam</td>
+			<td>Prijs</td>
+			<td>Categorie</td>
+			<td>Korte omschrijving</td>
+			<td>Lange omschrijving</td>
+			<td>Afbeelding</td>
+			<td>Acties</td>
+		</tr>
+	</thead>
+	<tbody>
+	@foreach($products as $product)
+		<tr>
+			<td>{{ $product->id }}</td>
+			<td>{{ $product->name }}</td>
+			<td>{{ $product->price }}</td>
+			<td>{{ Category::find($product->category_id)->name }}</td>
+			<td>{{ $product->shortDescription }}</td>
+			<td>{{ $product->description }}</td>
+			<td>{{ $product->imageName }}</td>
+			<td>
+				<!-- delete the nerd (uses the destroy method DESTROY /nerds/{id} -->
+				<a class="btn btn-small btn-success" href="{{ URL::to('product/' . $product->id) }}">Bekijk product</a>
+				<a class="btn btn-small btn-info" href="{{ URL::to('product/' . $product->id . '/edit') }}">Wijzig product</a>
+			</td>
+		</tr>
+	@endforeach
+	</tbody>
+	</table>
 	</div>
 	</br>
+
 	<span class="caret"></span> <span id='toggle2' style="cursor: pointer;">Een Categorie Wijzigen</span>
 	<div id="hide2">
-		@foreach ($categories as $category) 
-			
-			{{ HTML::linkRoute('editCategory', $category->name, array($category->id)) }}</br >
-		
-		@endforeach
+	<table class="table table-striped table-bordered">
+	<thead>
+		<tr>
+			<td>ID</td>
+			<td>Naam</td>
+			<td>Parent</td>
+			<td>Acties</td>
+		</tr>
+	</thead>
+	<tbody>
+	@foreach($categories as $category)
+		<tr>
+			<td>{{ $category->id }}</td>
+			<td>{{ $category->name }}</td>
+			<td>
+			@if($category->parent === 0)
+				Is zelf een Ouder
+			@else
+				{{ Category::find($category->parent)->name }}
+			@endif
+			</td>
+
+			<td>
+				<!-- delete the nerd (uses the destroy method DESTROY /nerds/{id} -->
+				<a class="btn btn-small btn-success" href="{{ URL::to('category/' . $category->id) }}">Bekijk categorie</a>
+				<a class="btn btn-small btn-info" href="{{ URL::to('category/' . $category->id . '/edit') }}">Wijzig categorie</a>
+			</td>
+		</tr>
+	@endforeach
+	</tbody>
+	</table>
 	</div>
 
 </div>

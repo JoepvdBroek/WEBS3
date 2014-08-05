@@ -30,7 +30,7 @@
                     <ul class="dropdown-menu" role="menu">
                     <?php $subcategories = Category::where('parent', '=', $category->id)->get(); ?>
                         @foreach($subcategories as $sub)
-                            <li>{{ HTML::linkRoute('category', $sub->name, $sub->id) }}</li>
+                            <li>{{ HTML::linkRoute('category.show', $sub->name, $sub->id) }}</li>
                         @endforeach
                     </ul>
             @endforeach

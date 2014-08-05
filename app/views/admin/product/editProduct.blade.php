@@ -5,7 +5,7 @@
 	<div class="well">
 		<legend>Een product wijzigen</legend>
 
-		{{ Form::open(array('action'=>'AdminController@updateProduct', 'role'=>'form', 'files'=> true)) }}
+		{{ Form::model($product, array('route' => array('product.update', $product->id), 'method' => 'put', 'roles' => 'form', 'files' => true)) }}
 
 		@if($errors->any())
 		<div class="alert alert-error">
@@ -29,14 +29,16 @@
 		{{ Form::label('category', 'Categorie') }} </br>
 		{{ Form::select('category', $categories, $product->category_id, array('class'=>'form-control')) }} </br>
 
-		{{ Form::text('id', $product->id, array('hidden'=>'hidden')) }}
+		{{ Form::label('image', 'Afbeelding') }} </br>
+		{{ Form::file('image') }} </br>
+		<p>Kies alleen een beelding als u die wil veranderen.</p></br>
 
 		{{ Form::submit('Opslaan', array('class'=>'btn btn-success')) }}
 		{{ HTML::link('admin', 'Annuleer', array('class'=>'btn btn-danger'))  }}
 
 		{{ Form::close() }}
 
-		<p>wilt u de afbeelding veranderen? klik dan {{ HTML::linkRoute('editImage', 'hier', array($product->id)) }}.</p>
+		<!--<p>wilt u de afbeelding veranderen? klik dan {{ HTML::linkRoute('product.image', 'hier', array($product->id)) }}.</p>-->
 	</div>
 </div>
 @stop

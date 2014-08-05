@@ -6,7 +6,7 @@
 	
 	@foreach ($products as $product) 
 		
-		{{ HTML::linkRoute('product', $product->name, array($product->id)) }}</br >
+		{{ HTML::linkRoute('product.show', $product->name, array($product->id)) }}</br >
 	
 	@endforeach
 	

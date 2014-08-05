@@ -5,7 +5,7 @@
 	<div class="well">
 		<legend>Een categorie wijzigen</legend>
 
-		{{ Form::open(array('route'=>'updateCategory', 'role'=>'form')) }}
+		{{ Form::model($category, array('route' => array('category.update', $category->id), 'method' => 'put', 'roles' => 'form')) }}
 
 		@if($errors->any())
 		<div class="alert alert-error">
