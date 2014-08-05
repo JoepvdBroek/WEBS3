@@ -6,6 +6,7 @@
     {{ HTML::script('http://code.jquery.com/jquery.js') }}
     {{ HTML::script('js/bootstrap.js') }}
     {{ HTML::style('css/bootstrap.css') }}
+    {{ HTML::script('js/javascript.js') }}
 
 </head>
 

@@ -3,9 +3,9 @@
 @section('content')
 <div class="span4 offset1">
 	<div class="well">
-		<legend>Niewe Categorie aanmaken</legend>
+		<legend>Een categorie wijzigen</legend>
 
-		{{ Form::open(array('route'=>'newCategory', 'role'=>'form')) }}
+		{{ Form::open(array('route'=>'updateCategory', 'role'=>'form')) }}
 
 		@if($errors->any())
 		<div class="alert alert-error">
@@ -15,15 +15,15 @@
 		@endif
 		
 		{{ Form::label('name', 'Categorienaam') }} </br>
-		{{ Form::text('name', '', array('class'=>'form-control')) }} </br>
+		{{ Form::text('name', $category->name, array('class'=>'form-control')) }} </br>
 
 		{{ Form::label('parent', 'Ouder') }} </br>
-		{{ Form::select('parent', $categories, null, array('class'=>'form-control')) }} </br>
+		{{ Form::select('parent', $categories, $category->parent, array('class'=>'form-control')) }} </br>
 
 		<p>Geen ouder geeft aan dat het zelf een ouder is</p>
 		<!--{{ Form::file('image') }} </br></br>-->
 
-		{{ Form::submit('Aanmaken', array('class'=>'btn btn-success')) }}
+		{{ Form::submit('Opslaan', array('class'=>'btn btn-success')) }}
 		{{ HTML::link('admin', 'Annuleer', array('class'=>'btn btn-danger'))  }}
 
 		{{ Form::close() }}

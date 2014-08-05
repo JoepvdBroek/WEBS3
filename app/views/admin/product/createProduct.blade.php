@@ -5,13 +5,6 @@
 	<div class="well">
 		<legend>Nieuw product aanmaken</legend>
 
-		<?php
-		Form::macro('number', function()
-		{
-		    return '<input name="price" type="number" min="0.01" step="0.01" placeholder="0.00" class="form-control">';
-		});
-		?>
-
 		{{ Form::open(array('route'=>'newProduct', 'role'=>'form', 'files'=> true)) }}
 
 		@if($errors->any())
@@ -25,7 +18,7 @@
 		{{ Form::text('name', '', array('placeholder'=>'Naam', 'class'=>'form-control')) }} </br>
 
 		{{ Form::label('price', 'Prijs') }} </br>
-		{{ Form::number('price')  }} </br>
+		<?php echo '<input name="price" type="number" min="0.01" step="0.01" placeholder="0.00" class="form-control">'; ?> </br>
 
 		{{ Form::label('shortDescription', 'Korte omschrijving') }} </br>
 		{{ Form::text('shortDescription', '', array('class'=>'form-control')) }} </br>
