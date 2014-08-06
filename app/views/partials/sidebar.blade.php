@@ -45,7 +45,7 @@
     <div class="input-group">
     {{Form::text('search', '', array('class' => 'form-control'))}}
     <span class="input-group-btn">
-    {{ Form::submit('Search', array('class' => 'btn btn-default'))}}
+    {{ Form::submit('Zoek', array('class' => 'btn btn-default'))}}
     </span>
     {{ Form::close()}}
     </div><!-- /input-group -->

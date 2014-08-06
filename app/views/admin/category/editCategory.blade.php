@@ -1,7 +1,8 @@
 @extends('layouts.nosidebar')
 
 @section('content')
-<div class="span4 offset1">
+<div class="col-lg-3"></div>
+<div class="col-lg-6">
 	<div class="well">
 		<legend>Een categorie wijzigen</legend>
 
@@ -15,7 +16,7 @@
 		@endif
 		<div class="control-group">
 		{{ Form::label('name', 'Categorienaam') }}
-		{{ Form::text('name', $category->name, array('class'=>'form-control')) }}
+		{{ Form::text('name', $category->name, array('class'=>'form-control', 'placeholder'=>'Naam')) }}
 		</div>
 		<br>
 		<div class="control-group">
@@ -31,4 +32,5 @@
 		{{ Form::close() }}
 	</div>
 </div>
+<div class="col-lg-3"></div>
 @stop

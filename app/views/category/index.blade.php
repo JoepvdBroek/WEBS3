@@ -3,8 +3,8 @@
 @section('content')
 
 <h1>{{ ucwords($title) }}</h1>
-<!--
 @if($products->count())
+<!--
 	<?php $number = 0; ?>
 
 	@foreach($products as $product)

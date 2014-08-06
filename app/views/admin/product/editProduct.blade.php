@@ -1,7 +1,8 @@
 @extends('layouts.nosidebar')
 
 @section('content')
-<div class="span4 offset1">
+<div class="col-lg-3"></div>
+<div class="col-lg-6">
 	<div class="well">
 		<legend>Een product wijzigen</legend>
 
@@ -30,7 +31,7 @@
 		<br>
 		<div class="control-group">
 		{{ Form::label('description', 'Lange omschrijving') }}
-		{{ Form::textarea('description', $product->description, array('class'=>'form-control', 'rows'=>'3')) }}
+		{{ Form::textarea('description', $product->description, array('class'=>'form-control', 'rows'=>'3', 'style'=>'max-width:500px')) }}
 		</div>
 		<br>
 		<div class="control-group">
@@ -54,5 +55,6 @@
 		<!--<p>wilt u de afbeelding veranderen? klik dan {{ HTML::linkRoute('product.image', 'hier', array($product->id)) }}.</p>-->
 	</div>
 </div>
+<div class="col-lg-3"></div>
 @stop
 

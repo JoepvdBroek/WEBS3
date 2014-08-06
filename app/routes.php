@@ -24,7 +24,7 @@ Route::get('todo', function()
 });
 
 //product Routes
-Route::get('product/{product}/image', array('as'=>'product.image', 'uses'=>'ProductController@image'));
+Route::post('search', array('as'=>'search', 'uses'=>'ProductController@search'));
 
 Route::resource('product', 'ProductController');
 
