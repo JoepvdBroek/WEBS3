@@ -1,8 +1,8 @@
-@extends('layouts.default')
+@extends('layouts.nosidebar')
 
 @section('content')
 
-<div class="span12 well">
+<div class="col-md-12">
 	<h3>welcome {{ ucwords(Auth::user()->username) }} </h3>
 
 	</br > 

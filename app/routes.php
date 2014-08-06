@@ -31,8 +31,6 @@ Route::resource('product', 'ProductController');
 
 Route::get('/', array('as'=>'home', 'uses'=>'HomeController@index'));
 
-Route::get('error', array('as'=>'error', 'uses'=>'HomeController@error'));
-
 //user Routes
 Route::get('login', array('as'=>'login', 'uses'=>'AuthController@getLogin'));
 
@@ -49,12 +47,7 @@ Route::group(array('before'=>'auth'), function()
 {
 	Route::get('admin', array('as'=>'admin', 'uses'=>'AdminController@getIndex'));
 
-	//Route::get('product/image/{product}', array('as'=>'editImage', 'uses'=>'AdminController@editImage'));
-
-	//Route::post('product/update', array('as'=>'updateImage', 'uses'=>'AdminController@updateImage'));
 });
-
-
 
 //category Routes
 Route::resource('category', 'CategoryController');

@@ -1,7 +1,8 @@
-@extends('layouts.default')
+@extends('layouts.nosidebar')
 
 @section('content')
-<div class="span4 offset1">
+<div class="col-lg-4"></div>
+<div class="col-lg-4">
 	<div class="well">
 		<legend>Login</legend>
 		
@@ -25,4 +26,5 @@
 		{{ Form::close() }}
 	</div>
 </div>
+<div class="col-lg-4"></div>
 @stop

@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.nosidebar')
 
 @section('content')
 <div class="span4 offset1">
@@ -13,15 +13,18 @@
 			{{ implode('', $errors->all('<li class="error">:message</li>')) }}
 		</div>
 		@endif
-		
-		{{ Form::label('name', 'Categorienaam') }} </br>
-		{{ Form::text('name', '', array('class'=>'form-control')) }} </br>
-
-		{{ Form::label('parent', 'Ouder') }} </br>
-		{{ Form::select('parent', $categories, null, array('class'=>'form-control')) }} </br>
-
+		<div class="control-group">
+		{{ Form::label('name', 'Categorienaam') }}
+		{{ Form::text('name', '', array('class'=>'form-control')) }}
+		</div>
+		<br>
+		<div class="control-group">
+		{{ Form::label('parent', 'Ouder') }}
+		{{ Form::select('parent', $categories, null, array('class'=>'form-control')) }}
+		<br>
 		<p>Geen ouder geeft aan dat het zelf een ouder is</p>
-
+		</div>
+		<br>
 		{{ Form::submit('Aanmaken', array('class'=>'btn btn-success')) }}
 		{{ HTML::link('admin', 'Annuleer', array('class'=>'btn btn-danger'))  }}
 

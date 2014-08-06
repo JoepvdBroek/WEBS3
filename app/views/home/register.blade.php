@@ -1,7 +1,8 @@
-@extends('layouts.default')
+@extends('layouts.nosidebar')
 
 @section('content')
-<div class="span4 offset1">
+<div class="col-lg-4"></div>
+<div class="col-lg-4">
 	<div class="well">
 		<legend>Register</legend>
 
@@ -27,4 +28,5 @@
 		<p>toch wel één account, login dan {{ HTML::link('login', 'hier')}} in.</p>
 	</div>
 </div>
+<div class="col-lg-4"></div>
 @stop
