@@ -12,6 +12,7 @@
 	<li>Homepage Carrousel van aantal producten</li>
 	<li>Winkelwagen</li>
 	<li>Javascript toepassen</li>
+	<li>Zoek optie</li>
 	<li>MEER OPMAAK / ANDERE OPMAAK</li>
 </ul>
 

@@ -36,13 +36,13 @@ class ProductController extends BaseController {
 		$input = Input::all();
 
 		$path = public_path();
-		$path = $path . "\images";
+		$path = $path . "/images";
 
 		$val = Validator::make($input, Product::$rules);
 
 		if($val->fails())
 		{
-			return Redirect::to('product/' . $id . '/create')
+			return Redirect::to('product/create')
 				->withErrors($val)
 				->withInput();
 		}
@@ -55,7 +55,7 @@ class ProductController extends BaseController {
 			$product->shortDescription = $input['shortDescription'];
 			$product->description = $input['description'];
 			$product->category_id = $input['category'];
-			$product->imageName = $input['image'];
+			//$product->imageName = $input['image'];
 
 			if(Input::hasFile('image'))
 			{
@@ -64,24 +64,29 @@ class ProductController extends BaseController {
 					try 
 					{
 						$image = Input::file('image');
-	    				$image->move($path, Input::file('image')->getClientOriginalName());
+
+						Image::make($image->getRealPath())->resize('200','200')->save($path.'/200x200/'.$image->getClientOriginalName());
+						Image::make($image->getRealPath())->resize('100','100')->save($path.'/100x100/'.$image->getClientOriginalName());
+
+						$product->imageName = $image->getClientOriginalName();
+	    				//$image->move($path, Input::file('image')->getClientOriginalName());
 	    				$product->save();
 					} 
 					catch(Exception $e) 
 					{
-						return Redirect::route('error', array($e->getMessage()));
+						return $e->getMessage();
 						// Handle your error here.
 						// You might want to log $e->getMessage() as that will tell you why the file failed to move.
 					}				
 				}
 				else
 				{
-					return Redirect::route('error', array('File is not valid'));
+					return 'File is not valid';
 				}
 			}
 			else
 			{
-				return Redirect::route('error', array('No file selected'));
+				return 'No file selected';
 			}
 
 			return Redirect::to('/');
@@ -105,6 +110,9 @@ class ProductController extends BaseController {
 	public function update($id)
 	{
 		$input = Input::all();
+
+		$path = public_path();
+		$path = $path . "/images";
 
 		$rules = array('name'=>'required', 'price'=>'required|numeric', 'shortDescription'=>'required', 'description'=>'required', 'category'=>'required');
 
@@ -133,20 +141,24 @@ class ProductController extends BaseController {
 					try 
 					{
 						$image = Input::file('image');
-	    				$image->move($path, Input::file('image')->getClientOriginalName());
 
-	    				$product->imageName = $input['image'];
+						Image::make($image->getRealPath())->resize('200','200')->save($path.'/200x200/'.$image->getClientOriginalName());
+						Image::make($image->getRealPath())->resize('100','100')->save($path.'/100x100/'.$image->getClientOriginalName());
+
+						$product->imageName = $image->getClientOriginalName();
+	    				//$image->move($path, Input::file('image')->getClientOriginalName());
+	
 					} 
 					catch(Exception $e) 
 					{
-						return Redirect::route('error', array($e->getMessage()));
+						return $e->getMessage();
 						// Handle your error here.
 						// You might want to log $e->getMessage() as that will tell you why the file failed to move.
 					}				
 				}
 				else
 				{
-					return Redirect::route('error', array('File is not valid'));
+					return 'File is not valid';
 				}
 			}
 			
@@ -203,7 +215,11 @@ class ProductController extends BaseController {
 
 	public function destroy($id)
 	{
-		# code...
+		$product = Product::find($id);
+
+		$product->delete();
+
+		return Redirect::to('admin');
 	}
 
 }

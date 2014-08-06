@@ -17,16 +17,17 @@
 |});
 */
 
-//product Routes
-Route::get('product/{product}/image', array('as'=>'product.image', 'uses'=>'ProductController@image'));
-
-Route::resource('product', 'ProductController');
-
 Route::get('todo', function()
 {
 	return View::make('home.todo')
 		->with('title', 'TODO');
 });
+
+//product Routes
+Route::get('product/{product}/image', array('as'=>'product.image', 'uses'=>'ProductController@image'));
+
+Route::resource('product', 'ProductController');
+
 
 Route::get('/', array('as'=>'home', 'uses'=>'HomeController@index'));
 

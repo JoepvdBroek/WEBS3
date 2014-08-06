@@ -32,12 +32,14 @@
 			<td>{{ $product->price }}</td>
 			<td>{{ Category::find($product->category_id)->name }}</td>
 			<td>{{ $product->shortDescription }}</td>
-			<td>{{ $product->description }}</td>
-			<td>{{ $product->imageName }}</td>
+			<td>{{ substr($product->description, 0, 120) }} {{ HTML::link('product/'.$product->id, '[...]', array($product->id)) }}</td>
+			<td>{{ HTML::image('images/100x100/'.$product->imageName, $product->imageName) }}</td>
 			<td>
-				<!-- delete the nerd (uses the destroy method DESTROY /nerds/{id} -->
 				<a class="btn btn-small btn-success" href="{{ URL::to('product/' . $product->id) }}">Bekijk product</a>
 				<a class="btn btn-small btn-info" href="{{ URL::to('product/' . $product->id . '/edit') }}">Wijzig product</a>
+				{{ Form::open(array('methode'=>'DELETE', 'route'=>array('product.destroy', $product->id))) }}
+				{{ Form::submit('Verwijder product', array('class'=>'btn btn-danger')) }}
+				{{ Form::close() }}
 			</td>
 		</tr>
 	@endforeach

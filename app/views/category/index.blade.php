@@ -4,11 +4,14 @@
 
 <h1>{{ ucwords($title) }}</h1>
 
-@foreach ($products as $product) 
-	<h2>{{ HTML::linkRoute('product.show', $product->name, array($product->id)) }}</h2>
-	<h3>{{ $product->price }}</h2>
+@if($products->count())
+	@foreach ($products as $product) 
+		<h2>{{ HTML::linkRoute('product.show', $product->name, array($product->id)) }}</h2>
+		<h3>{{ $product->price }}</h2>
 
-	<p>{{ $product->shortDescription }}<p></br></br>
-@endforeach
-
+		<p>{{ $product->shortDescription }}<p></br></br>
+	@endforeach
+@else
+	<p>Helaas zijn er nog geen producten onder dit categorie.</p>
+@endif
 @stop
