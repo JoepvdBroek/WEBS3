@@ -1,6 +1,6 @@
 <div class="col-lg-4">   
 <div class="well">
-<h2>Categoriën</h2>
+<h4>Categoriën</h4>
 <ul>
     <?php $categories = Category::where('parent', '=', '0')->get(); ?>
 

@@ -189,4 +189,11 @@ class ProductController extends BaseController {
 			->with('products', $products);
 	}
 
+	public function destroy($id)
+	{
+		$product = Product::find($id);
+
+		$product->delete();		
+	}
+
 }

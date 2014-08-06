@@ -37,7 +37,7 @@
 			<td>
 				<a class="btn btn-small btn-success" href="{{ URL::to('product/' . $product->id) }}">Bekijk product</a>
 				<a class="btn btn-small btn-info" href="{{ URL::to('product/' . $product->id . '/edit') }}">Wijzig product</a>
-				{{ Form::open(array('methode'=>'DELETE', 'route'=>array('product.destroy', $product->id))) }}
+				{{ Form::open(array('route'=>array('product.destroy', $product->id), 'methode'=>'delete')) }}
 				{{ Form::submit('Verwijder product', array('class'=>'btn btn-danger')) }}
 				{{ Form::close() }}
 			</td>
