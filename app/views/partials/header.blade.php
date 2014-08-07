@@ -6,3 +6,4 @@
     {{ HTML::style('css/bootstrap-journal.css') }}
     {{ HTML::style('css/bootstrap-journal.min.css') }}
     {{ HTML::script('js/javascript.js') }}
+

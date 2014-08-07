@@ -17,7 +17,7 @@
             @yield('content')
         </div>
     
-        @include('partials/sidebar')
+        @include('partials/sidebar2')
 
     </div><!-- /.row -->
 
