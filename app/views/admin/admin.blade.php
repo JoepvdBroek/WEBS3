@@ -9,7 +9,7 @@
 	{{ HTML::linkRoute('product.create', 'Niewe Product Aanmaken') }}</br>
 	{{ HTML::linkRoute('category.create', 'Niewe Categorie Aanmaken') }}</br>
 <hr>
-	<span class="caret"></span> <span id='toggle1' style="cursor: pointer;">Een Product Wijzigen</span>
+	<span class="caret"></span> <span id='toggle1' class="clickable">Een Product Wijzigen</span>
 	<div id="hide1">
 	<table class="table table-striped table-bordered">
 	<thead>
@@ -48,7 +48,7 @@
 	</div>
 	</br>
 
-	<span class="caret"></span> <span id='toggle2' style="cursor: pointer;">Een Categorie Wijzigen</span>
+	<span class="caret"></span> <span id='toggle2'class="clickable">Een Categorie Wijzigen</span>
 	<div id="hide2">
 	<table class="table table-striped table-bordered">
 	<thead>

@@ -22,7 +22,7 @@
 
                 <ul class="nav navbar-nav navbar-right">
                     @if(Auth::user())
-                        <li>{{ HTML::link('admin', ucwords(Auth::user()->username)) }}</li>
+                        <li><a href="{{ route('admin') }}"><span class="glyphicon glyphicon-user"></span>{{ ucwords(Auth::user()->username) }}</a></li>
                         <li>{{ HTML::link('logout', 'Logout') }}</li>
                     @else
                         <li>{{ HTML::link('login', 'Login') }}</li>

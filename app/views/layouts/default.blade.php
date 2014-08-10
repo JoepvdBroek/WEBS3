@@ -6,7 +6,7 @@
 
 </head>
 
-<body style="padding-top: 70px;">
+<body>
 
     @include('partials/nav')
 

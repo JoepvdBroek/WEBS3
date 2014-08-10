@@ -23,31 +23,37 @@
     </div>
 
     <div class="panel panel-primary">
-    	<div class="panel-heading">
+    	  <div class="panel-heading">
           	<h3 class="panel-title">Uw winkelwagen</h3>
         </div>
-        <div class="panel-body">
-              <div class="row">
-                <div class="col-lg-6">
-                  <ul class="list-unstyled">
-                    <li><a href="#dinosaurs">Dinosaurs</a></li>
-                    <li><a href="#spaceships">Spaceships</a></li>
-                    <li><a href="#fried-foods">Fried Foods</a></li>
-                    <li><a href="#wild-animals">Wild Animals</a></li>
-                  </ul>
-                </div>
-                <div class="col-lg-6">
-                  <ul class="list-unstyled">
-                    <li><a href="#alien-abductions">Alien Abductions</a></li>
-                    <li><a href="#business-casual">Business Casual</a></li>
-                    <li><a href="#robots">Robots</a></li>
-                    <li><a href="#fireworks">Fireworks</a></li>
-                  </ul>
-                </div>
-              </div>
-          </div>
-   	</div>
 
+        <div class="panel-body">
+            <div class="row">
+
+                <div class="col-lg-6">
+                  <ul class="list-unstyled">
+                    <div class="shoppingcart">
+                    
+                      @foreach($cart->contents(true) as $item)
+                        <li>{{ $item->name }}</li>
+                      @endforeach
+                    <!-- else voor 'uw winkelwagen is nog leeg'-->
+                    
+                    </div>
+                  </ul>
+                </div>
+
+                <div class="col-lg-6">
+                  <ul class="list-unstyled">
+                    <div class="shoppingcart_quantity">
+                    </div>
+                  </ul>
+                </div>
+
+             </div>
+        </div>
+
+   	</div>
 
    	<div class="panel panel-primary">
    		<div class="panel-heading">

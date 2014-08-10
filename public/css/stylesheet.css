@@ -1,0 +1,20 @@
+.price{
+	padding-top:10px;
+}
+
+.productname{
+	height:56px;
+}
+
+.thumpnail{
+	height: 386.500px; 
+	max-width: 210px;
+}
+
+body{
+	padding-top: 70px;
+}
+
+.clickable{
+	cursor: pointer;
+}
