@@ -22,7 +22,11 @@
 
                 <ul class="nav navbar-nav navbar-right">
                     @if(Auth::user())
-                        <li><a href="{{ route('admin') }}"><span class="glyphicon glyphicon-user"></span>{{ ucwords(Auth::user()->username) }}</a></li>
+                        <li><a>Welkom {{ ucwords(Auth::user()->username) }}</a></li>
+                    @endif
+                    <li><a href="{{ route('cart') }}"><span class="glyphicon glyphicon-shopping-cart"></a></li>
+                    @if(Auth::user())
+                        <li><a href="{{ route('admin') }}"><span class="glyphicon glyphicon-user"></span></a></li>
                         <li>{{ HTML::link('logout', 'Logout') }}</li>
                     @else
                         <li>{{ HTML::link('login', 'Login') }}</li>

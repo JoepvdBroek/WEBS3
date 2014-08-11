@@ -2,6 +2,11 @@
 
 class CartController extends BaseController{
 
+	public function Index()
+	{
+		return View::make('cart.cart')
+			->with('title', 'Winkelwagen');
+	}
 
 	public function add()
 	{
@@ -16,16 +21,37 @@ class CartController extends BaseController{
 			    'quantity' => 1
 			);
 
-			//if(Cart::has($item))
-			//{
-			///	$Cart::item($item)->quantity = $Cart::item($item)->quantity + 1;
-			//}
-			/////else
-			//{
+			if(Cart::has($item))
+			{
+				$Cart::item($item)->quantity = $Cart::item($item)->quantity + 1;
+			}
+			else
+			{
 				Cart::insert($item);
-			//}
+			}
 
 			return Response::json($product);
 		}
 	}
+
+	public function store()
+	{
+
+	}
+
+	public function edit($id)
+	{
+
+	}
+
+	public function update($id)
+	{
+
+	}
+
+	public function destroy($id)
+	{
+	
+	}
+
 }

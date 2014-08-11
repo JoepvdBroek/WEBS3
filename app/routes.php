@@ -23,7 +23,9 @@ Route::get('todo', function()
 		->with('title', 'TODO');
 });
 
-Route::post('cart', array('as'=>'cart.add', 'uses'=>'CartController@add'));
+Route::get('cart', array('as'=>'cart', 'uses'=>'CartController@index'));
+
+Route::post('cart/add', array('as'=>'cart.add', 'uses'=>'CartController@add'));
 
 //product Routes
 Route::post('search', array('as'=>'search', 'uses'=>'ProductController@search'));

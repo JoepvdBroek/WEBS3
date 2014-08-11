@@ -24,31 +24,32 @@
 
     <div class="panel panel-primary">
     	  <div class="panel-heading">
-          	<h3 class="panel-title">Uw winkelwagen</h3>
+          	<h3 class="panel-title">Uw winkelwagen <span class="glyphicon glyphicon-shopping-cart"></h3>
         </div>
 
         <div class="panel-body">
             <div class="row">
 
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                   <ul class="list-unstyled">
                     <div class="shoppingcart">
-                    
-                      @foreach($cart->contents(true) as $item)
-                        <li>{{ $item->name }}</li>
+                    @if(Cart::totalItems(true) > 0)
+                      @foreach(Cart::contents() as $item)
+                        <li>{{ HTML::linkRoute('product.show', $item->name, array($item->id)) }}</li>
                       @endforeach
-                    <!-- else voor 'uw winkelwagen is nog leeg'-->
-                    
+                    @else
+                      <li>Uw Winkelwagen is nog leeg</li>
+                    @endif
                     </div>
                   </ul>
                 </div>
 
-                <div class="col-lg-6">
+                <!--<div class="col-lg-6">
                   <ul class="list-unstyled">
                     <div class="shoppingcart_quantity">
                     </div>
                   </ul>
-                </div>
+                </div>-->
 
              </div>
         </div>
@@ -57,7 +58,7 @@
 
    	<div class="panel panel-primary">
    		<div class="panel-heading">
-          	<h3 class="panel-title">Zoek naar</h3>
+          	<h3 class="panel-title">Zoek naar <span class="glyphicon glyphicon-search"></span></h3>
         </div>
         <div class="panel-body">
 		    {{ Form::open(array('url' => 'search')) }}

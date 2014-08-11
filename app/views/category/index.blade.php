@@ -22,7 +22,7 @@
 		        @endif		      
 		        <p class="price">&#8364; {{ $product->price }}</p>
 		        <p>{{ HTML::linkRoute('product.show', 'Bekijk', array($product->id), array('class'=>'btn btn-primary', 'role'=>'button')) }}
-		        <button onclick="addToCart({{$product->id}},'{{$product->name}}')" class="btn btn-default" role="button"><span class="glyphicon glyphicon-shopping-cart">Toevoegen</span></button></p>
+		        <button onclick="addToCart({{$product->id}})" class="btn btn-default" role="button"><span class="glyphicon glyphicon-shopping-cart">Toevoegen</span></button></p>
 		      </div>
 		    </div>
 		  </div>		
