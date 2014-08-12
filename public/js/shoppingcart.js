@@ -7,7 +7,21 @@
 	});
 
   	$.post('../cart/add', {id: id} ,function(product){
-  		$('.shoppingcart').append("<li><a href='../product/"+product.id+"'>"+product.name+"</a></li>");
+
+  		var item = $(".shoppingcart #item"+product.id);
+
+  		if (item.size()){
+  			$('#quantity'+product.id).html(product.quantity+" x");
+		}
+		else 
+		{
+			$('.shoppingcart').append("<li id='item"+product.id+"'><a href='../product/"+product.id+"'>"+product.name+"</a></li>");
+			$('.shoppingcart_quantity').append("<li id='quantity"+product.id+"'>"+product.quantity+" x</li>");
+
+			item.toggle( "highlight" );
+		}
+
+
   	});
   }
 

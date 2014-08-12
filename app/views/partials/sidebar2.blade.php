@@ -30,12 +30,24 @@
         <div class="panel-body">
             <div class="row">
 
-                <div class="col-lg-12">
+                <div class="col-lg-2">
+                  <ul class="list-unstyled">
+                    <div class="shoppingcart_quantity">
+                      @if(Cart::totalItems(true) > 0)
+                        @foreach(Cart::contents() as $item)
+                          <li id="quantity{{ $item->id }}">{{ $item->quantity }} x</li>
+                        @endforeach
+                      @endif
+                    </div>
+                  </ul>
+                </div>
+
+                <div class="col-lg-10">
                   <ul class="list-unstyled">
                     <div class="shoppingcart">
                     @if(Cart::totalItems(true) > 0)
                       @foreach(Cart::contents() as $item)
-                        <li>{{ HTML::linkRoute('product.show', $item->name, array($item->id)) }}</li>
+                        <li id="item{{ $item->id }}">{{ HTML::linkRoute('product.show', $item->name, array($item->id)) }}</li>
                       @endforeach
                     @else
                       <li>Uw Winkelwagen is nog leeg</li>
@@ -43,14 +55,6 @@
                     </div>
                   </ul>
                 </div>
-
-                <!--<div class="col-lg-6">
-                  <ul class="list-unstyled">
-                    <div class="shoppingcart_quantity">
-                    </div>
-                  </ul>
-                </div>-->
-
              </div>
         </div>
 

@@ -21,16 +21,20 @@ class CartController extends BaseController{
 			    'quantity' => 1
 			);
 
-			if(Cart::has($item))
-			{
-				$Cart::item($item)->quantity = $Cart::item($item)->quantity + 1;
-			}
-			else
-			{
-				Cart::insert($item);
-			}
+			Cart::insert($item);
 
-			return Response::json($product);
+			foreach (Cart::contents() as $content) {
+			    if($content->id === $product->id)
+			    {
+			    	$identifier = $content->identifier;
+			    	$return = Cart::item($identifier)->toArray();
+			    	return Response::json($return);
+			    }
+			}
+			
+
+			return Response::json($item);
+			
 		}
 	}
 
