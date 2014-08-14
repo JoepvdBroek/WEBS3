@@ -50,7 +50,7 @@
                         <li id="item{{ $item->id }}">{{ HTML::linkRoute('product.show', $item->name, array($item->id)) }}</li>
                       @endforeach
                     @else
-                      <li>Uw Winkelwagen is nog leeg</li>
+                      <li id="empty">Uw Winkelwagen is nog leeg</li>
                     @endif
                     </div>
                   </ul>
