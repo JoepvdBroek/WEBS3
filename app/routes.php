@@ -47,8 +47,9 @@ Route::post('register', array('before'=>'csrf', 'uses'=>'AuthController@postRegi
 Route::get('logout', array('as'=>'logout', 'uses'=>'AuthController@logout'));
 
 //Admin Routes
-Route::group(array('before'=>'auth'), function()
+Route::group(array('before'=>'admin'), function()
 {
+	                     
 	Route::get('admin', array('as'=>'admin', 'uses'=>'AdminController@getIndex'));
 
 });

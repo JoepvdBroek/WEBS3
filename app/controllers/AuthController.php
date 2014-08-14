@@ -63,6 +63,7 @@ class AuthController extends BaseController{
 			$user = new User();
 			$user->username = $input['username'];
 			$user->password = $password;
+			$user->role = 'customer';
 			$user->save();
 
 			return Redirect::to('login');

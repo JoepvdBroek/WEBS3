@@ -53,6 +53,34 @@ class AddCategories extends Migration {
 			'created_at'=>date('Y-m-d H:m:s'),
 			'updated_at'=>date('Y-m-d H:m:s')
 		));
+
+		DB::table('categories')->insert(array(
+			'name'=>'Gezichtsverzorging',
+			'parent'=>'1',
+			'created_at'=>date('Y-m-d H:m:s'),
+			'updated_at'=>date('Y-m-d H:m:s')
+		));
+
+		DB::table('categories')->insert(array(
+			'name'=>'Elektronica',
+			'parent'=>'0',
+			'created_at'=>date('Y-m-d H:m:s'),
+			'updated_at'=>date('Y-m-d H:m:s')
+		));
+
+		DB::table('categories')->insert(array(
+			'name'=>'Tablets',
+			'parent'=>'8',
+			'created_at'=>date('Y-m-d H:m:s'),
+			'updated_at'=>date('Y-m-d H:m:s')
+		));
+
+		DB::table('categories')->insert(array(
+			'name'=>'Smartphones',
+			'parent'=>'8',
+			'created_at'=>date('Y-m-d H:m:s'),
+			'updated_at'=>date('Y-m-d H:m:s')
+		));
 	}
 
 	/**
@@ -66,11 +94,15 @@ class AddCategories extends Migration {
 		DB::table('categories')->where('name', '=', 'Poppen')->delete();
 		DB::table('categories')->where('name', '=', 'Thriller')->delete();
 		DB::table('categories')->where('name', '=', 'Mondsverzorging')->delete();
+		DB::table('categories')->where('name', '=', 'Smartphones')->delete();
+		DB::table('categories')->where('name', '=', 'Tablets')->delete();
+		DB::table('categories')->where('name', '=', 'Gezichtsverzorging')->delete();
 
 		//parents
 		DB::table('categories')->where('name', '=', 'Speelgoed')->delete();
 		DB::table('categories')->where('name', '=', 'Boeken')->delete();
 		DB::table('categories')->where('name', '=', 'Verzorging')->delete();
+		DB::table('categories')->where('name', '=', 'Elektronica')->delete();
 	}
 
 }

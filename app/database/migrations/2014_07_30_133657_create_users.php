@@ -16,6 +16,7 @@ class CreateUsers extends Migration {
 			$table->increments('id');
 			$table->string('username');
 			$table->string('password');
+			$table->enum('role', array('admin', 'customer'));
 			$table->dateTime('updated_at');
 			$table->dateTime('created_at');
 			$table->rememberToken();
