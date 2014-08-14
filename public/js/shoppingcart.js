@@ -21,8 +21,7 @@
 		}
 		else 
 		{
-			$('.shoppingcart').append("<li id='item"+product.id+"'><a href='../product/"+product.id+"'>"+product.name+"</a></li>");
-			$('.shoppingcart_quantity').append("<li id='quantity"+product.id+"'>"+product.quantity+" x</li>");
+			$('.shoppingcart').append("<li><span id='quantity"+product.id+"'>"+product.quantity+" x</span><span id='item"+product.id+"'><a href='../product/"+product.id+"'>"+product.name+"</a></span></li>");
 
 		}
 
