@@ -24,7 +24,7 @@
 
     <div class="panel panel-primary">
     	  <div class="panel-heading">
-          	<h3 class="panel-title">Uw winkelwagen <span class="glyphicon glyphicon-shopping-cart"></h3>
+          	<h3 class="panel-title">Uw winkelwagen <a href="{{ route('cart') }}"><span class="glyphicon glyphicon-shopping-cart"></a></h3>
         </div>
 
         <div class="panel-body">
@@ -41,7 +41,7 @@
                         </li>
                       @endforeach
                     @else
-                      <li id="empty">Uw Winkelwagen is nog leeg</li>
+                      <li id="empty">Uw Winkelwagen is leeg</li>
                     @endif
                     </div><!-- shoppingcart -->
                   </ul>

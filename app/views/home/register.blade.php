@@ -15,17 +15,17 @@
 		</div>
 		@endif
 
-		{{ Form::text('username', '', array('placeholder'=>'Username', 'class'=>'form-control')) }}<br>
+		{{ Form::text('username', '', array('placeholder'=>'Gebruikersnaam', 'class'=>'form-control')) }}<br>
 
-		{{ Form::password('password', array('placeholder'=>'Password', 'class'=>'form-control')) }}<br>
+		{{ Form::password('password', array('placeholder'=>'Wachtwoord', 'class'=>'form-control')) }}<br>
 
-		{{ Form::submit('register', array('class'=>'btn btn-success')) }}
+		{{ Form::submit('Registreer', array('class'=>'btn btn-success')) }}
 
-		{{ HTML::link('/', 'Cancel', array('class'=>'btn btn-danger')) }}<br>
+		{{ HTML::link('/', 'Annuleer', array('class'=>'btn btn-danger')) }}<br>
 		
 		{{ Form::close() }}
 
-		<p>toch wel één account, login dan {{ HTML::link('login', 'hier')}} in.</p>
+		<p>Toch wel een account, login dan {{ HTML::link('login', 'hier')}} in.</p>
 	</div>
 </div>
 <div class="col-lg-4"></div>

@@ -22,10 +22,16 @@ Route::get('todo', function()
 	return View::make('home.todo')
 		->with('title', 'TODO');
 });
-
+// cart Routes
 Route::get('cart', array('as'=>'cart', 'uses'=>'CartController@index'));
 
+Route::post('cart/remove', array('as'=>'cart.remove', 'uses'=>'CartController@remove'));
+
 Route::post('cart/add', array('as'=>'cart.add', 'uses'=>'CartController@add'));
+
+Route::get('cart/delete/{id}', array('as'=>'cart.delete', 'uses'=>'CartController@delete'));
+
+Route::get('cart/empty', array('as'=>'cart.empty', 'uses'=>'CartController@destroy'));
 
 //product Routes
 Route::post('search', array('as'=>'search', 'uses'=>'ProductController@search'));

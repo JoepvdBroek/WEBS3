@@ -15,13 +15,13 @@
 		</div>
 		@endif
 
-		{{ Form::text('username', '', array('placeholder'=>'Username', 'class'=>'form-control')) }}<br>
+		{{ Form::text('username', '', array('placeholder'=>'Gebruikersnaam', 'class'=>'form-control')) }}<br>
 
-		{{ Form::password('password', array('placeholder'=>'Password', 'class'=>'form-control')) }}<br>
+		{{ Form::password('password', array('placeholder'=>'Wachtwoord', 'class'=>'form-control')) }}<br>
 
-		{{ Form::submit('login', array('class'=>'btn btn-success')) }}
+		{{ Form::submit('Login', array('class'=>'btn btn-success')) }}
 
-		{{ HTML::link('register', 'Register', array('class'=>'btn btn-primary')) }}
+		{{ HTML::link('register', 'Registreer', array('class'=>'btn btn-primary')) }}
 
 		{{ Form::close() }}
 	</div>

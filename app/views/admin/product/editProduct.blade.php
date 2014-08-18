@@ -51,8 +51,6 @@
 		{{ HTML::link('admin', 'Annuleer', array('class'=>'btn btn-danger'))  }}
 
 		{{ Form::close() }}
-
-		<!--<p>wilt u de afbeelding veranderen? klik dan {{ HTML::linkRoute('product.image', 'hier', array($product->id)) }}.</p>-->
 	</div>
 </div>
 <div class="col-lg-3"></div>
