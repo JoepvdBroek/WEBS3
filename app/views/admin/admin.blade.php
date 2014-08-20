@@ -35,10 +35,10 @@
 			<td>{{ substr($product->description, 0, 120) }} {{ HTML::link('product/'.$product->id, '[...]', array($product->id)) }}</td>
 			<td>{{ HTML::image('images/100x100/'.$product->imageName, $product->imageName) }}</td>
 			<td>
-				<a class="btn btn-small btn-success" href="{{ URL::to('product/' . $product->id) }}">Bekijk product</a>
-				<a class="btn btn-small btn-info" href="{{ URL::to('product/' . $product->id . '/edit') }}">Wijzig product</a>
-				{{ Form::open(array('route'=>array('product.destroy', $product->id), 'methode'=>'delete')) }}
-				{{ Form::submit('Verwijder product', array('class'=>'btn btn-danger')) }}
+				<a class="btn btn-small btn-success" href="{{ URL::to('product/' . $product->id) }}">Bekijk</a>
+				<a class="btn btn-small btn-info" href="{{ URL::to('product/' . $product->id . '/edit') }}">Wijzig</a>
+				{{ Form::open(array('route'=>array('product.destroy', $product->id), 'method'=>'delete')) }}
+				{{ Form::submit('Verwijder', array('class'=>'btn btn-danger')) }}
 				{{ Form::close() }}
 			</td>
 		</tr>
@@ -74,8 +74,11 @@
 
 			<td>
 				<!-- delete the nerd (uses the destroy method DESTROY /nerds/{id} -->
-				<a class="btn btn-small btn-success" href="{{ URL::to('category/' . $category->id) }}">Bekijk categorie</a>
-				<a class="btn btn-small btn-info" href="{{ URL::to('category/' . $category->id . '/edit') }}">Wijzig categorie</a>
+				<a class="btn btn-small btn-success" href="{{ URL::to('category/' . $category->id) }}">Bekijk</a>
+				<a class="btn btn-small btn-info" href="{{ URL::to('category/' . $category->id . '/edit') }}">Wijzig</a>
+				{{ Form::open(array('route'=>array('category.destroy', $category->id), 'method'=>'delete')) }}
+				{{ Form::submit('Verwijder', array('class'=>'btn btn-danger')) }}
+				{{ Form::close() }}
 			</td>
 		</tr>
 	@endforeach

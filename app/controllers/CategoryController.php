@@ -82,7 +82,18 @@ class CategoryController extends BaseController {
 
 	public function destroy($id)
 	{
-		# code...
+		$category = Category::find($id);
+
+		$children = Category::where('parent', '=' , $id)->get();
+
+		foreach($children as $child)
+		{
+			$child->delete();
+		}
+
+		$category->delete();	
+
+		return Redirect::to('admin');
 	}
 
 

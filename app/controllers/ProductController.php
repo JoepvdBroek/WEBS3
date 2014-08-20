@@ -193,7 +193,9 @@ class ProductController extends BaseController {
 	{
 		$product = Product::find($id);
 
-		$product->delete();		
+		$product->delete();	
+
+		return Redirect::to('admin');	
 	}
 
 }
