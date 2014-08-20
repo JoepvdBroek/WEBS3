@@ -9,4 +9,5 @@
     {{ HTML::style('css/stylesheet.css') }}
     {{ HTML::script('js/toggle.js') }} 
     {{ HTML::script('js/shoppingcart.js') }}
+    {{ HTML::script('js/carrousel.js') }}
 

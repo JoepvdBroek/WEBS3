@@ -18,3 +18,10 @@ body{
 .clickable{
 	cursor: pointer;
 }
+
+#carContent{
+	position: absolute; 
+	width:600px; 
+	left:0px; 
+	top:0px;"
+}

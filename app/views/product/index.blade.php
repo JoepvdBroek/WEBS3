@@ -3,10 +3,12 @@
 @section('content')
 	<h1>Product Home Page</h1>
 
-	<div id="carContent" style="position: absolute; width:600px; left:0px; top:0px;">
-            
-            </div>  
+	<div class="row">
+		<div id="carContent">
+	            
+	    </div> 
+	</div> <!-- row -->
 
-  <p>Carrousel - coming soon...</p>
+ 
 	
 @stop

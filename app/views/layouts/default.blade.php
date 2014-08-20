@@ -3,7 +3,7 @@
 <head>
     
 	@include('partials/header')
-<script language="javascript" src="js/carrousel.js"></script>
+
 </head>
 
 <body onload="itemSize()">

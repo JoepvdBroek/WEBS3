@@ -1,4 +1,4 @@
-var pictures = new Array('images/100x100/barbie.jpg','images/100x100/buggy.jpg', 'images/100x100/harry.jpg', 'images/100x100/iphone3.jpg', 'images/100x100/nivea.jpg', 'images/100x100/tandenborstel.jpg');
+var pictures = new Array('images/200x200/barbie.jpg','images/200x200/buggy.jpg', 'images/200x200/harry.jpg', 'images/200x200/iphone3.jpg', 'images/200x200/nivea.jpg', 'images/200x200/tandenborstel.jpg');
 var items = pictures.length;
 var angles = new Array(items);
 var images = new Array(items);
