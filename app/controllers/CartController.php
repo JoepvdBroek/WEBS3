@@ -28,6 +28,7 @@ class CartController extends BaseController{
 			    {
 			    	$identifier = $content->identifier;
 			    	$return = Cart::item($identifier)->toArray();
+			    	$return['total'] = Cart::total();
 			    	return Response::json($return);
 			    }
 			}
@@ -55,7 +56,9 @@ class CartController extends BaseController{
 			    	}
 			    	else{
 			    		$item->quantity = $item->quantity - 1;
-			    		return Response::json($item->toArray());
+			    		$return = $item->toArray();
+			    		$return['total'] = Cart::total();
+			    		return Response::json($return);
 			    	}			    	
 
 			    	
@@ -81,14 +84,11 @@ class CartController extends BaseController{
 				$item = Cart::item($identifier);			    
 			    $item->remove();
 			    	
-			  	   	
-
-			    	
+			  	return View::make('cart.cart')
+					->with('title', 'Winkelwagen');	 	
+		    	
 			}
-		}	
-
-		return View::make('cart.cart')
-			->with('title', 'Winkelwagen');	 
+		}			 
 	}
 
 	

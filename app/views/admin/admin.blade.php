@@ -1,8 +1,8 @@
 @extends('layouts.nosidebar')
 
 @section('content')
-
-<div class="col-md-12">
+<div class="row">
+<div class="col-lg-12">
 	<h3>welcome {{ ucwords(Auth::user()->username) }} </h3>
 
 	</br > 
@@ -82,6 +82,6 @@
 	</tbody>
 	</table>
 	</div>
-
+</div>
 </div>
 @stop

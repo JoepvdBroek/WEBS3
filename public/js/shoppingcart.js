@@ -40,6 +40,8 @@ function increaseQuantity(id){
         var quantity = $("#quantity");
 
         $('#quantity'+id).html(' '+product.quantity+' ');
+        $('#price'+id).html('&#8364; '+(product.price*product.quantity)+' ');
+        $('#total').html('Totaal prijs: &#8364;'+ product.total);
     });
 }
 
@@ -56,6 +58,8 @@ function decreaseQuantity(id){
         if(product.quantity!=null)
         {
           $('#quantity'+id).html(' '+product.quantity+' ');
+          $('#price'+id).html('&#8364; '+(product.price*product.quantity)+' ');
+          $('#total').html('Totaal prijs: &#8364;'+ product.total);
         }
         else
         {
