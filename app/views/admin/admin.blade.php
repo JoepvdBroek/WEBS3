@@ -71,9 +71,7 @@
 				{{ Category::find($category->parent)->name }}
 			@endif
 			</td>
-
 			<td>
-				<!-- delete the nerd (uses the destroy method DESTROY /nerds/{id} -->
 				<a class="btn btn-small btn-success" href="{{ URL::to('category/' . $category->id) }}">Bekijk</a>
 				<a class="btn btn-small btn-info" href="{{ URL::to('category/' . $category->id . '/edit') }}">Wijzig</a>
 				{{ Form::open(array('route'=>array('category.destroy', $category->id), 'method'=>'delete')) }}
