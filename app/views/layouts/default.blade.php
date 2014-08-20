@@ -3,10 +3,10 @@
 <head>
     
 	@include('partials/header')
-
+<script language="javascript" src="js/carrousel.js"></script>
 </head>
 
-<body>
+<body onload="itemSize()">
 
     @include('partials/nav')
 
@@ -14,6 +14,7 @@
     <div class="row">
 
         <div class="col-lg-8">
+
             @yield('content')
         </div>
     
