@@ -29,9 +29,11 @@ Route::post('cart/remove', array('as'=>'cart.remove', 'uses'=>'CartController@re
 
 Route::post('cart/add', array('as'=>'cart.add', 'uses'=>'CartController@add'));
 
-Route::get('cart/delete/{id}', array('as'=>'cart.delete', 'uses'=>'CartController@delete'));
+Route::post('cart/delete', array('as'=>'cart.delete', 'uses'=>'CartController@delete'));
 
 Route::get('cart/empty', array('as'=>'cart.empty', 'uses'=>'CartController@destroy'));
+
+Route::get('cart/order', array('as'=>'cart.order', 'uses'=>'CartController@order'));
 
 //product Routes
 Route::post('search', array('as'=>'search', 'uses'=>'ProductController@search'));

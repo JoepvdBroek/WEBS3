@@ -8,6 +8,7 @@ class AdminController extends BaseController{
 		return View::make('admin.admin')
 			->with('title', 'Admin Page')
 			->with('products', Product::all())
-			->with('categories', Category::all());
+			->with('categories', Category::all())
+			->with('orders', Order::all());
 	}
 }

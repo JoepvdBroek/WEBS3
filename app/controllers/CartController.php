@@ -75,20 +75,53 @@ class CartController extends BaseController{
 			->with('title', 'Winkelwagen');
 	}
 
-	public function delete($id)
+	public function delete()
 	{
-		foreach (Cart::contents() as $content) {
-			if($content->id === $id)
-			{
-			    $identifier = $content->identifier;
-				$item = Cart::item($identifier);			    
-			    $item->remove();
+		if(Request::ajax())
+		{
+			foreach (Cart::contents() as $content) {
+				if($content->id === $id)
+				{
+				    $identifier = $content->identifier;
+					$item = Cart::item($identifier);			    
+				    $item->remove();
+				    	
+				  	return true;	 	
 			    	
-			  	return View::make('cart.cart')
-					->with('title', 'Winkelwagen');	 	
-		    	
+				}
+			}	
+		}					 
+	}
+
+	public function order()
+	{
+		if(Auth::user()){
+
+			$order = new Order;
+
+			$order->user_id = Auth::user()->id; 
+			$order->price = Cart::total();
+
+			$order->save();
+
+			foreach(Cart::contents() as $item){
+				DB::table('products_by_order')->insert(
+						array('product_id'=>$item->id, 'order_id'=>$order->id, 'amount'=>$item->quantity, 'created_at'=>date('Y-m-d H:m:s'), 'updated_at'=>date('Y-m-d H:m:s'))
+					);
 			}
-		}			 
+
+
+			Cart::destroy();
+
+			return View::make('cart.cart')
+				->with('title', 'Winkelwagen');
+		}
+		else
+		{
+			return Redirect::to('login');
+		}
+
+		
 	}
 
 	

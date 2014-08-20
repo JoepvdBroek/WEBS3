@@ -29,19 +29,19 @@ function addToCart(id){
 
 function increaseQuantity(id){
 
-  $.ajaxSetup({
+    $.ajaxSetup({
       headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
     });
 
   //var id = $(this).data('id');
 
-    $.post('cart/add', {id: id} ,function(product){
+    $.post('cart/add', {id: id} , function(product){
 
         var quantity = $("#quantity");
 
         $('#quantity'+id).html(' '+product.quantity+' ');
         $('#price'+id).html('&#8364; '+(product.price*product.quantity)+' ');
-        $('#total').html('Totaal prijs: &#8364;'+ product.total);
+        $('#total').html('Totaal prijs: &#8364; '+ product.total);
     });
 }
 
@@ -53,20 +53,31 @@ function decreaseQuantity(id){
 
   //var id = $(this).data('id');
 
-    $.post('cart/remove', {id: id} ,function(product){
+    $.post('cart/remove', {id: id} , function(product){
 
         if(product.quantity!=null)
         {
           $('#quantity'+id).html(' '+product.quantity+' ');
           $('#price'+id).html('&#8364; '+(product.price*product.quantity)+' ');
-          $('#total').html('Totaal prijs: &#8364;'+ product.total);
+          $('#total').html('Totaal prijs: &#8364; '+ product.total);
         }
         else
         {
           location.reload();
         }
         
+    });
+}
+
+function removeItem(id){
+    $.ajaxSetup({
+      headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
+    });
+
+    $.post('cart/delete', {id: id} , function(product){
         console.log(product);
+        location.reload();
+                   
     });
 }
 

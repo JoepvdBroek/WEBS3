@@ -9,6 +9,7 @@
 	{{ HTML::linkRoute('product.create', 'Niewe Product Aanmaken') }}</br>
 	{{ HTML::linkRoute('category.create', 'Niewe Categorie Aanmaken') }}</br>
 <hr>
+
 	<span class="caret"></span> <span id='toggle1' class="clickable">Een Product Wijzigen</span>
 	<div id="hide1">
 	<table class="table table-striped table-bordered">
@@ -83,6 +84,44 @@
 	</tbody>
 	</table>
 	</div>
+
+	<hr>
+
+	<span class="caret"></span> <span id='toggle3'class="clickable">Alle Bestellingen</span>
+	<div id="hide3">
+	
+	@foreach($orders as $order)
+	
+		<div class="row">
+			<div class="col-lg-6">
+			Bestelling ID: {{ $order->id }}<br>
+			Gebruikersnaam: {{ User::find($order->user_id)->username }}
+			
+			<table class="table table-striped table-bordered">
+			<thead>
+				<tr>
+					<td>Product</td>
+					<td>Aaatal</td>
+				</tr>
+			</thead>
+			<tbody>
+			@foreach(DB::table('products_by_order')->where('order_id', $order->id)->get() as $row)
+				<tr>
+					<td>{{ Product::find($row->product_id)->name }}</td>
+					<td>{{ $row->amount }}</td>
+				</tr>
+			@endforeach
+			</tbody>
+			</table>	
+			</div>	
+		</div>
+	@endforeach
+	
+	</div>
+
+
+	
+
 </div>
 </div>
 @stop

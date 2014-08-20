@@ -25,7 +25,7 @@
 				<span id="quantity{{ $item->id }}"> {{ $item->quantity }} </span>
 				<a class="clickable" onclick="increaseQuantity({{$item->id}})"><span class="glyphicon glyphicon-plus" ></span></a>
 			</td>
-			<td>{{ HTML::linkRoute('cart.delete', 'verwijderen', $item->id) }}</td>
+			<td><a class="clickable" onclick="removeItem({{$item->id}})">Verwijderen</a></td>
 		</tr>
         @endforeach
     
@@ -36,7 +36,11 @@
 	</table>
 	</div>
 </div>
-	{{ HTML::linkRoute('cart.empty', 'Winkelwagen leegmaken') }}
+	<div>
+		<span>{{ HTML::linkRoute('cart.empty', 'Winkelwagen leegmaken') }}</span>
+		<span style="float:right;">{{ HTML::linkRoute('cart.order', 'Bestellen') }}</span>
+	</div>
+	
 	@else
         <h3>Uw Winkelwagen is leeg</h3>
     </div>
