@@ -16,6 +16,7 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>{{ HTML::link('taakverdeling', 'Taakverdeling') }}</li>
+                    <li>{{ HTML::link('frontend', 'Frontend') }}</li>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">

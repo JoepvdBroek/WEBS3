@@ -15,6 +15,12 @@ class HomeController extends BaseController {
 			->with('title', 'Taakverdeling');
 	}
 
+	public function frontend()
+	{
+		return View::make('home.frontend')
+			->with('title', 'Frontend');
+	}
+
 	
 
 	/*

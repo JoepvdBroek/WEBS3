@@ -19,6 +19,8 @@
 
 Route::get('taakverdeling', array('as'=>'taakverdeling', 'uses'=>'HomeController@taakverdeling'));
 
+Route::get('frontend', array('as'=>'frontend', 'uses'=>'HomeController@frontend'));
+
 
 // cart Routes
 Route::get('cart', array('as'=>'cart', 'uses'=>'CartController@index'));
