@@ -9,11 +9,10 @@ class HomeController extends BaseController {
 			->with('products', Product::all());
 	}
 
-	public function error($message)
+	public function taakverdeling()
 	{
-		return View::make('home.error')
-			->with('title', 'Error Page')
-			->with('message', $message);
+		return View::make('home.taakverdeling')
+			->with('title', 'Taakverdeling');
 	}
 
 	

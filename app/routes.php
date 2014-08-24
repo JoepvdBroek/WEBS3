@@ -17,11 +17,9 @@
 |});
 */
 
-Route::get('todo', function()
-{
-	return View::make('home.todo')
-		->with('title', 'TODO');
-});
+Route::get('taakverdeling', array('as'=>'taakverdeling', 'uses'=>'HomeController@taakverdeling'));
+
+
 // cart Routes
 Route::get('cart', array('as'=>'cart', 'uses'=>'CartController@index'));
 
